@@ -14,14 +14,16 @@
     document.execCommand("Copy");
     await tick();
     textarea.blur();
+    textareaText = "";
+    await tick();
     dispatch("copy");
   }
 </script>
 
 <style>
   textarea {
-    left: 0;
-    bottom: 0;
+    left: -100500;
+    top: -100500;
     margin: 0;
     padding: 0;
     opacity: 0;
