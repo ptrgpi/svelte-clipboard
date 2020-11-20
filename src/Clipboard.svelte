@@ -4,10 +4,12 @@
   const dispatch = createEventDispatcher();
 
   export let text;
-
+  let textareaText;
   let textarea;
 
   async function copy() {
+    textareaText = text();
+    await tick();
     textarea.select();
     document.execCommand("Copy");
     await tick();
@@ -32,4 +34,4 @@
 </style>
 
 <slot {copy} />
-<textarea bind:this={textarea} value={text} />
+<textarea bind:this={textarea} value={textareaText} />
